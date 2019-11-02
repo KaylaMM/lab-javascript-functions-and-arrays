@@ -1,15 +1,76 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(firstNum, secondNum){
+  
+  if (firstNum > secondNum) {
+     return firstNum ;
+  } else {
+      return secondNum;
+  }
+  return;
+
+}
+
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arr){
+  let longest= '';
+  for (i=0; i<arr.length; i++){
+      if (arr[i].length > longest.length){
+        longest = arr[i];
+      }
+  }
+  return longest || null; // This happen outside of the loop so the loop can continue through the length of the array.
+}
+
+findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let total = 0;
+
+function sumArray(numArr){
+  if (numArr.length === 0){
+    return 0;
+  } else if (numArr.length === 1) {
+    return numArr[0]
+  } else {
+    for (i=0; i<numArr.length; i++){
+      total += numArr[i];
+    }
+  }
+  return total;
+} 
+
+sumArray();
+
+//Why is the loop "<" arr.length and not "<="?
+//Why is the loop not returning a single number if there is only one number in the loop? (need to specify
+// with "else if arr.length === 1")
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(firstArr){
+  let sum1 = 0;
+  if (firstArr.length === 0){
+    return null;
+  } else if (firstArr.length === 1) {
+    return firstArr[0]
+  } else {
+    for (i=0; i<firstArr.length; i++){
+      sum1 += firstArr[i];
+    }
+  }
+  return sum1 / firstArr.length;
+} 
+
+averageNumbers();
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +85,18 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(secondArr){
+  let sum2 = 0;
+  if (secondArr.length === 0){
+    return null;
+  } else {
+    for (i=0; i<secondArr.length; i++){
+      sum2 += secondArr[i].length;
+    }
+  }
+  return sum2 / secondArr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +113,31 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (uniqArr){
+  let unique = [];
+  for (let i=0; i<uniqArr.length; i++){
+    if (uniqArr.indexOf(uniqArr[i]) === i) {
+      unique.push(uniqArr[i])
+    }
+  }
+  return unique
+}
+
+// BEFORE:
+// function uniquifyArray(uniqArr){
+//   if (uniqArr.length === 0) {
+//     return uniqArr;
+//   } else if (uniqArr[i] === uniqArr[i]){
+//     return uniqArr;
+//   } else if (uniqArr[i] != uniqArr[i]){ 
+//     return uniqArr;
+//   } else if (uniqArr.filter(uniqArr[i] = uniqArr[i])){
+//     return [uniqArr[i]];
+//   } else if (uniqArr[i].indexOf > 1){
+//     uniqArr.splice(uniqArr[i]([i],1))
+//   }
+// }
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +149,32 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+// function doesWordExist(arrFind){
+//   for (i=0; i<arrFind.length; i++){
+//   if (arrFind.length === 0){
+//     return false;
+//   } else if (arrFind.length === 1){
+//     return true;
+//   } else if (!arrFind[i]){
+//     return false;
+//   }
+//  }
+//  return arrFind;
+// }
+
+
+function doesWordExist (arrFind){  
+  if (arrFind.length === 0){
+    return false;
+  } else if (arrFind.length === 1){
+    return true;
+  } else if (!arrFind[i]){
+    return false;
+  } else {
+    console.log(arrFind.includes([i]));
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +190,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arrWords, numberOfTimes){
+  let thisManyTimes = 0
+  if (!arrWords){
+    return 0;
+  } else if (!arrWords[i]){
+    return 0;
+  } else {
+    for (i=0; i<=arrWords.length; i++){
+      if (arrWords[i] == numberOfTimes) {thisManyTimes++}
+    }
+    return thisManyTimes || true;
+  }
+}
+
 
 // Iteration #8: Bonus
 
@@ -91,3 +230,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
